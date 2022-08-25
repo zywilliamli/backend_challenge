@@ -1,0 +1,21 @@
+[
+  {
+    "model": "person.address",
+    "pk": 1,
+    "fields": {
+      "number": "1",
+      "street": "George Street",
+      "city": "Sydney",
+      "state": "New South Wales"
+    }
+  },
+  {
+    "model": "person.person",
+    "pk": 2,
+    "fields": {
+      "email": "random.person@gmail.com",
+      "name": "William Billy Wilson",
+      "address": 1
+    }
+  }
+]
