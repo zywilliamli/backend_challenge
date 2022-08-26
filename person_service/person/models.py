@@ -1,7 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
 class Address(models.Model):
     class AustralianStates(models.TextChoices):
         ACT = 'Australian Capital Territory'
@@ -19,16 +18,15 @@ class Address(models.Model):
     state = models.CharField(max_length=100, choices=AustralianStates.choices)
 
     def __str__(self):
-        # todo: should we hash this?
-        return self.name
+        return f'{self.number} {self.street} {self.city} {self.state}'
 
 
 class Person(models.Model):
-    email = models.CharField(max_length=100)
+    email = models.EmailField()
     name = models.CharField(max_length=100)
     address = models.ForeignKey(
         Address, related_name="person", on_delete=models.CASCADE
     )
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.email} {self.address}'
